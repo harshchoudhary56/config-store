@@ -6,9 +6,6 @@ spring:
     username: root
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
-  cloud:
-    config:
-      uri: http://localhost:8888
   jpa:
     hibernate:
       ddl-auto: none # Disable Hibernate's auto schema creation since Liquibase will manage the schema
@@ -23,3 +20,5 @@ spring:
     default-schema: school_management_user_db # Optional: Specify the default schema
     liquibase-schema: school_management_user_db # Optional: Schema for Liquibase's own tables (DATABASECHANGELOG, DATABASECHANGELOGLOCK)
     drop-first: false # Optional: Set to true to drop the schema before applying changes (use with caution)
+server:
+  port: 8080
