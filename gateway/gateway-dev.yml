@@ -10,7 +10,7 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: USER_MICROSERVICE
+        - id: user_microservice
           uri: lb://user_microservice
           predicates:
             - Path=/user/**
