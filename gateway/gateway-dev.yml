@@ -11,7 +11,7 @@ spring:
           lower-case-service-id: true
       routes:
         - id: user-service
-          uri: lb://USER_MICROSERVICE
+          uri: lb://user_microservice
           predicates:
             - Path=/user/**
           filters:
