@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/school_management_user_db
     username: root
-    password: password
+    password: Hrhk@4321
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     config:
