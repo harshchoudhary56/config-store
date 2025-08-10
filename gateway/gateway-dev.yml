@@ -13,7 +13,7 @@ spring:
         webflux:
           routes:
             - id: user_microservice
-              uri: lb://user_microservice
+              uri: lb://USER_MICROSERVICE
               predicates:
                 - Path=/user/**
               filters:
