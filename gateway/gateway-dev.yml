@@ -9,13 +9,15 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-      routes:
-        - id: user_microservice
-          uri: lb://user_microservice
-          predicates:
-            - Path=/user/**
-          filters:
-            - AuthenticationFilter
+      server:
+        webflux:
+          routes:
+            - id: user_microservice
+              uri: lb://user_microservice
+              predicates:
+                - Path=/user/**
+              filters:
+                - AuthenticationFilter
 
 eureka:
   client:
