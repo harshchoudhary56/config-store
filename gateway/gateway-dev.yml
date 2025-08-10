@@ -1,5 +1,6 @@
 server:
   port: 8765
+
 spring:
   application:
     name: api-gateway
@@ -9,15 +10,13 @@ spring:
         locator:
           enabled: false
           lower-case-service-id: true
-      server:
-        webflux:
-          routes:
-            - id: user_microservice
-              uri: lb://USER_MICROSERVICE
-              predicates:
-                - Path=/user/**
-              filters:
-                - AuthenticationFilter
+      routes:
+        - id: user_microservice
+          uri: lb://USER_MICROSERVICE
+          predicates:
+            - Path=/user/**
+          filters:
+            - name: AuthenticationFilter
 
 eureka:
   client:
