@@ -8,7 +8,7 @@ spring:
     gateway:
       routes:
         - id: USER_MICROSERVICE
-          uri: localhost:8080
+          uri: lb://USER_MICROSERVICE
           predicates:
             - Path=/user/**
           filters:
