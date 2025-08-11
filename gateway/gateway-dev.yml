@@ -10,7 +10,7 @@ spring:
         - id: USER_MICROSERVICE
           uri: lb://USER_MICROSERVICE
           predicates:
-            - Path="/user/**"
+            - Path=/user/**
           filters:
             - name: AuthenticationFilter
       discovery:
