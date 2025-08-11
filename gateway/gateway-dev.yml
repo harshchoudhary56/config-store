@@ -11,8 +11,8 @@ spring:
           uri: lb://USER_MICROSERVICE
           predicates:
             - Path=/user/**
-          filters:
-            - name: AuthenticationFilterFactory
+#          filters:
+#            - name: AuthenticationFilterFactory
       discovery:
         locator:
           enabled: true
