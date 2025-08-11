@@ -14,7 +14,7 @@ spring:
               predicates:
                 - Path=/user/**
               filters:
-                - name: AuthenticationFilter
+                - name: AuthenticationFilterFactory
           discovery:
             locator:
               enabled: false
