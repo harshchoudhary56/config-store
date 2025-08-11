@@ -3,13 +3,13 @@ server:
 
 spring:
   application:
-    name: api-gateway
+    name: API_GATEWAY
   cloud:
     gateway:
       server:
         webflux:
           routes:
-            - id: user_microservice
+            - id: USER_MICROSERVICE
               uri: lb://USER_MICROSERVICE
               predicates:
                 - Path=/user/**
@@ -17,8 +17,8 @@ spring:
                 - name: AuthenticationFilterFactory
           discovery:
             locator:
-              enabled: false
-              lower-case-service-id: true
+              enabled: true
+#              lower-case-service-id: true
 
 eureka:
   client:
@@ -30,3 +30,8 @@ eureka:
   instance:
     prefer-ip-address: true
     hostname: localhost
+
+logging:
+  level:
+    com.netflix.discovery: DEBUG
+    org.springframework.cloud: DEBUG
