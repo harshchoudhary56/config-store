@@ -8,15 +8,8 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: false
+          enabled: true
           lower-case-service-id: true
-      routes:
-        - id: user_microservice
-          uri: lb://USER_MICROSERVICE
-          predicates:
-            - Path=/user/**
-          filters:
-            - name: AuthenticationFilter
 
 eureka:
   client:
