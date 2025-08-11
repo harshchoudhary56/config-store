@@ -9,7 +9,6 @@ spring:
       discovery:
         locator:
           enabled: false
-          lower-case-service-id: true
       routes:
         - id: user_microservice
           uri: lb://USER_MICROSERVICE
