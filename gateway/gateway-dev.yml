@@ -6,18 +6,16 @@ spring:
     name: API_GATEWAY
   cloud:
     gateway:
-      server:
-        webflux:
-          routes:
-            - id: USER_MICROSERVICE
-              uri: lb://USER_MICROSERVICE
-              predicates:
-                - Path=/user/**
-              filters:
-                - name: AuthenticationFilterFactory
-          discovery:
-            locator:
-              enabled: true
+      routes:
+        - id: USER_MICROSERVICE
+          uri: lb://USER_MICROSERVICE
+          predicates:
+            - Path=/user/**
+          filters:
+            - name: AuthenticationFilterFactory
+      discovery:
+        locator:
+          enabled: true
 #              lower-case-service-id: true
 
 eureka:
