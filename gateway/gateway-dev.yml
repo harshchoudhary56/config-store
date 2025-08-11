@@ -17,8 +17,6 @@ spring:
             - Path=/user/**
           filters:
             - name: AuthenticationFilter
-              args:
-                exemptUrls: /user/auth/generate-token,/user/auth/refresh-token,/user/auth/register
 
 eureka:
   client:
