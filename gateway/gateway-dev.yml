@@ -10,13 +10,13 @@ spring:
         - id: USER_MICROSERVICE
           uri: lb://USER_MICROSERVICE
           predicates:
-            - Path=/user/**
-#          filters:
-#            - name: AuthenticationFilterFactory
+            - Path="/user/**"
+          filters:
+            - name: AuthenticationFilter
       discovery:
         locator:
-          enabled: true
-          lower-case-service-id: true
+          enabled: false
+#          lower-case-service-id: true
 
 eureka:
   client:
