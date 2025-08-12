@@ -3,12 +3,12 @@ server:
 
 spring:
   application:
-    name: API_GATEWAY
+    name: API-GATEWAY
   cloud:
     gateway:
       routes:
-        - id: USER_MICROSERVICE
-          uri: lb://USER_MICROSERVICE
+        - id: USER-MICROSERVICE
+          uri: lb://USER-MICROSERVICE
           predicates:
             - Path=/user/**
           filters:

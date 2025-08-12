@@ -1,6 +1,6 @@
 spring:
   application:
-    name: USER_MICROSERVICE
+    name: USER-MICROSERVICE
   datasource:
     url: jdbc:mysql://localhost:3306/school_management_user_db
     username: root
