@@ -2,7 +2,7 @@ spring:
   application:
     name: USER-MICROSERVICE
   datasource:
-    url: jdbc:mysql://localhost:3306/school_management_user_db
+    url: jdbc:mysql://school-management-user-db.ch0geiusotcn.eu-north-1.rds.amazonaws.com
     username: root
     password: Hrhk@4321
     driver-class-name: com.mysql.cj.jdbc.Driver

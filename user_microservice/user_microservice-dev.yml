@@ -2,9 +2,9 @@ spring:
   application:
     name: USER-MICROSERVICE
   datasource:
-    url: jdbc:mysql://localhost:3306/school_management_user_db
+    url: jdbc:mysql://school-management-user-db.ch0geiusotcn.eu-north-1.rds.amazonaws.com
     username: root
-    password: Hrhk@4321
+    password: ffq54s4YN7h2MmD
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -17,8 +17,8 @@ spring:
     enabled: true # Enable Liquibase
     change-log: classpath:db/master-changelog.xml # Path to your master changelog file
     contexts: development # Context to match your changelog (e.g., development, production)
-    default-schema: school_management_user_db # Optional: Specify the default schema
-    liquibase-schema: school_management_user_db # Optional: Schema for Liquibase's own tables (DATABASECHANGELOG, DATABASECHANGELOGLOCK)
+    default-schema: school-management-user-db # Optional: Specify the default schema
+    liquibase-schema: school-management-user-db # Optional: Schema for Liquibase's own tables (DATABASECHANGELOG, DATABASECHANGELOGLOCK)
     drop-first: false # Optional: Set to true to drop the schema before applying changes (use with caution)
 
 eureka:
