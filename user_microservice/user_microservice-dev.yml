@@ -2,10 +2,13 @@ spring:
   application:
     name: USER-MICROSERVICE
   datasource:
-    url: jdbc:mysql://school-management-user-db.ch0geiusotcn.eu-north-1.rds.amazonaws.com
-    username: root
-    password: ffq54s4YN7h2MmD
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    mysql:
+      url: jdbc:mysql://school-management-user-db.ch0geiusotcn.eu-north-1.rds.amazonaws.com
+      username: root
+      password: ffq54s4YN7h2MmD
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    mongodb:
+      uri: mongodb+srv://admin:Hrhk@
   jpa:
     hibernate:
       ddl-auto: none # Disable Hibernate's auto schema creation since Liquibase will manage the schema
@@ -13,6 +16,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect # Adjust dialect based on your database
+      open-in-view: false # Optional: Disable Open Session in View if not needed
   liquibase:
     enabled: true # Enable Liquibase
     change-log: classpath:db/master-changelog.xml # Path to your master changelog file
