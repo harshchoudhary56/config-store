@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: API-GATEWAY
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/school_erp_gateway
+      database: school_erp_gateway
+  liquibase:
+    enabled: false
   cloud:
     gateway:
       routes:
