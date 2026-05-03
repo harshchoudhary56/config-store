@@ -1,30 +1,28 @@
 spring:
   application:
     name: USER-MICROSERVICE
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/power_school_user_dev
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   datasource:
     mysql:
-      url: jdbc:mysql://school-management-user-db.ch0geiusotcn.eu-north-1.rds.amazonaws.com
+      url: jdbc:mysql://localhost:3306/power_school_user_dev
       username: root
-      password: ffq54s4YN7h2MmD
+      password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
-    mongodb:
-      uri: mongodb+srv://admin:Hrhk@
-  jpa:
-    hibernate:
-      ddl-auto: none # Disable Hibernate's auto schema creation since Liquibase will manage the schema
-    show-sql: true # Optional: Show SQL queries in logs
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect # Adjust dialect based on your database
-      open-in-view: false # Optional: Disable Open Session in View if not needed
-  liquibase:
-    enabled: true # Enable Liquibase
-    change-log: classpath:db/master-changelog.xml # Path to your master changelog file
-    contexts: development # Context to match your changelog (e.g., development, production)
-    default-schema: school-management-user-db # Optional: Specify the default schema
-    liquibase-schema: school-management-user-db # Optional: Schema for Liquibase's own tables (DATABASECHANGELOG, DATABASECHANGELOGLOCK)
-    drop-first: false # Optional: Set to true to drop the schema before applying changes (use with caution)
-
+    data:
+      mongodb:
+        uri: mongodb://localhost:27017/power_school_user_dev
+        database: power_school_user_dev
+    liquibase:
+      enabled: true
+      change-log: classpath:db/master-changelog.xml
+      contexts: development
+      default-schema: power_school_dev # Kept consistent with your database URL
+      liquibase-schema: power_school_dev
+      drop-first: false
 eureka:
   client:
     service-url:

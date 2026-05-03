@@ -6,10 +6,15 @@ spring:
     name: API-GATEWAY
   data:
     mongodb:
-      uri: mongodb://localhost:27017/school_erp_gateway
-      database: school_erp_gateway
+      uri: mongodb://localhost:27017/power_school_gateway_dev
+      database: power_school_gateway_dev
   liquibase:
-    enabled: false
+    enabled: true
+    change-log: classpath:db/master-changelog.xml
+    contexts: development
+    default-schema: power_school_gateway_dev # Kept consistent with your database URL
+    liquibase-schema: power_school_gateway_dev
+    drop-first: false
   cloud:
     gateway:
       routes:
