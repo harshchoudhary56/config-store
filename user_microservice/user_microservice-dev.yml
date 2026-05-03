@@ -5,13 +5,11 @@ spring:
     url: r2dbc:mysql://localhost:3306/power_school_user_dev
     username: root
     password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
   datasource:
-    mysql:
-      url: jdbc:mysql://localhost:3306/power_school_user_dev
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/power_school_user_dev
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   data:
     mongodb:
       uri: mongodb://localhost:27017/power_school_user_dev
@@ -20,9 +18,12 @@ spring:
     enabled: true
     change-log: classpath:db/master-changelog.xml
     contexts: development
-    default-schema: power_school_dev # Kept consistent with your database URL
-    liquibase-schema: power_school_dev
+    default-schema: power_school_user_dev # Kept consistent with your database URL
+    liquibase-schema: power_school_user_dev
     drop-first: false
+    mongodb:
+      enabled: true
+      change-log: db/changelog/mongo/mongo-master-changelog.xml
 eureka:
   client:
     service-url:
