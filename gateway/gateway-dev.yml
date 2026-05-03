@@ -19,6 +19,9 @@ spring:
             - Path=/user/**
           filters:
             - name: AuthenticationFilter
+            - name: RateLimiterFilter
+              args:
+                strategy: TOKEN_BUCKET
 eureka:
   client:
     service-url:
