@@ -6,7 +6,7 @@ spring:
     name: API-GATEWAY
   data:
     mongodb:
-      uri: mongodb://root:root@localhost:27017/power_school_gateway_dev
+      uri: mongodb://localhost:27017/power_school_gateway_dev
       database: power_school_gateway_dev
   liquibase:
     enabled: false
@@ -32,7 +32,7 @@ spring:
             - name: CircuitBreaker
               args:
                 name: USER-MICROSERVICE-CB
-                fallbackUri: forward:/fallback
+                fallbackUri: forward:gateway/api/v1/user-fallback
             - name: CustomRoute
               args:
                 country: India
@@ -68,8 +68,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-management:
+  management:
     endpoints:
         web:
-        exposure:
+          exposure:
             include: "*"
