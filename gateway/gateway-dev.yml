@@ -6,15 +6,10 @@ spring:
     name: API-GATEWAY
   data:
     mongodb:
-      uri: mongodb://localhost:27017/power_school_gateway_dev
+      uri: mongodb://root:root@localhost:27017/power_school_gateway_dev
       database: power_school_gateway_dev
   liquibase:
-    enabled: true
-    change-log: classpath:db/master-changelog.xml
-    contexts: development
-    default-schema: power_school_gateway_dev # Kept consistent with your database URL
-    liquibase-schema: power_school_gateway_dev
-    drop-first: false
+    enabled: false
   cloud:
     gateway:
       routes:
@@ -23,11 +18,58 @@ spring:
           predicates:
             - Path=/user/**
           filters:
+            - name: RemoveRequestHeader
+              args:
+                name: Api-private-Key
+            - name: AddRequestHeader
+              args:
+                name: X-Test-RequestHeader
+                value: ApiGatewayRequest
+            - name: AddResponseHeader
+              args:
+                name: X-Test-ResponseHeader
+                value: ApiGatewayResponse
+            - name: CircuitBreaker
+              args:
+                name: USER-MICROSERVICE-CB
+                fallbackUri: forward:/fallback
+            - name: CustomRoute
+              args:
+                country: India
+            - name: Retry
+              args:
+                    retries: 3
+                    methods: GET, DELETE
             - name: AuthenticationFilter
             - name: RateLimiterFilter
               args:
                 strategy: TOKEN_BUCKET
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      USER-MICROSERVICE-CB:
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+
+logging:
+  level:
+    io:
+      github:
+        resilience4j:
+          circuitbreaker: DEBUG
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+management:
+    endpoints:
+        web:
+        exposure:
+            include: "*"
