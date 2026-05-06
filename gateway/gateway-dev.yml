@@ -6,8 +6,8 @@ spring:
     name: API-GATEWAY
   data:
     mongodb:
-      uri: mongodb://localhost:27017/power_school_gateway_devv
-      database: power_school_gateway_devv
+      uri: mongodb://localhost:27017/power_school_gateway_devvv
+      database: power_school_gateway_devvv
   liquibase:
     enabled: true
   cloud:
