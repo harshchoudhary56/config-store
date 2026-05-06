@@ -14,7 +14,7 @@ spring:
       context: development
       database: power_school_gateway_dev
       changeLog: db/changelog/master-changelog.xml
-    enabled: false
+    enabled: true
   cloud:
     gateway:
       routes:
