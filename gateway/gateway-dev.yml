@@ -6,14 +6,9 @@ spring:
     name: API-GATEWAY
   data:
     mongodb:
-      uri: mongodb://localhost:27017/power_school_gateway_dev
-      database: power_school_gateway_dev
+      uri: mongodb://localhost:27017/power_school_gateway_devv
+      database: power_school_gateway_devv
   liquibase:
-    mongodb:
-      uri: mongodb://localhost:27017/power_school_gateway_dev
-      context: development
-      database: power_school_gateway_dev
-      changeLog: db/changelog/master-changelog.xml
     enabled: true
   cloud:
     gateway:
