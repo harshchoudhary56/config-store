@@ -11,6 +11,8 @@ spring:
   liquibase:
     enabled: true
   cloud:
+    bus:
+      enabled: false
     gateway:
       routes:
         - id: USER-MICROSERVICE
@@ -49,6 +51,9 @@ spring:
     port: 5672
     username: guest
     password: guest
+    listener:
+      simple:
+        missing-queues-fatal: false
 
 resilience4j:
   circuitbreaker:
