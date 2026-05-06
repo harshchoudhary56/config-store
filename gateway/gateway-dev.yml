@@ -9,6 +9,11 @@ spring:
       uri: mongodb://localhost:27017/power_school_gateway_dev
       database: power_school_gateway_dev
   liquibase:
+    mongodb:
+      uri: mongodb://localhost:27017/power_school_gateway_dev
+      context: development
+      database: power_school_gateway_dev
+      changeLog: db/changelog/master-changelog.xml
     enabled: false
   cloud:
     gateway:
