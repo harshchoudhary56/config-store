@@ -44,6 +44,11 @@ spring:
             - name: RateLimiterFilter
               args:
                 strategy: TOKEN_BUCKET
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 resilience4j:
   circuitbreaker:
@@ -72,7 +77,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: health, info, refresh
   endpoint:
     gateway:
       enabled: true
